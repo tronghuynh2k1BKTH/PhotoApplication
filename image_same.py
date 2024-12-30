@@ -27,7 +27,7 @@ def calculate_similarity(img1, img2):
     good_matches = [m for m in matches if len(m) == 2 and m[0].distance < 0.6 * m[1].distance]
     return len(good_matches)
 
-def group_similar_images(image_folder, output_folder, similarity_threshold=10):
+def group_similar_images(image_folder, output_folder, similarity_threshold=30):
     """Nhóm các ảnh gần giống nhau vào các thư mục."""
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
@@ -102,8 +102,5 @@ image_folder = "/Users/huynhpham/myfolder/FotoApp/imagerest"
 output_folder = "/Users/huynhpham/myfolder/FotoApp/imagerest/group_output"
 output_single = "/Users/huynhpham/myfolder/FotoApp/imagerest/group_output/single"
 
-# image_folder = "/Users/huynhpham/myfolder/FotoApp/test"
-# output_folder = "/Users/huynhpham/myfolder/FotoApp/test/group_output"
-# output_single = "/Users/huynhpham/myfolder/FotoApp/test/group_output/single"
 group_similar_images(image_folder, output_folder)
 delete_single_file_folders(output_folder)
